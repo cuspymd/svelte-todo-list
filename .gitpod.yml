@@ -12,6 +12,8 @@ ports:
 vscode:
   extensions:
     - svelte.svelte-vscode
+    - vscodevim.vim
+
 
 github:
   prebuilds:
