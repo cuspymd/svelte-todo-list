@@ -6,16 +6,11 @@ export const get: RequestHandler = (request) => {
 }
 
 export const post: RequestHandler<{}, FormData> = (request) => {
-    todos.push({
+    return api(request, {
+        uid: `${Date.now()}`,
         text: request.body.get("text"),
         created_at: new Date(),
         done: false
     })
     
-    return {
-        status: 303,
-        headers: {
-            location: "/"
-        }
-    }
 }
