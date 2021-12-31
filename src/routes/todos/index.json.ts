@@ -1,12 +1,16 @@
 import type { RequestHandler } from "@sveltejs/kit";
+import { api } from "./_api"
 
-export const get: RequestHandler = () => {
-    return {
-        status: 200,
-        body: "Hello from the API"
-    }
+export const get: RequestHandler = (request) => {
+    return api(request);
 }
 
 export const post: RequestHandler<{}, FormData> = (request) => {
-    console.log(request.body.get("text"))
+    return api(request, {
+        uid: `${Date.now()}`,
+        text: request.body.get("text"),
+        created_at: new Date(),
+        done: false
+    })
+    
 }

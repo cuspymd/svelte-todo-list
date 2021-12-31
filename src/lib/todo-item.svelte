@@ -1,3 +1,6 @@
+<script lang="ts">
+    export let todo: Todo;
+</script>
 <style>
     .todo {
         display: grid;
@@ -74,11 +77,11 @@
     </form>
 
     <form action="" method="" class="text">
-        <input type="text" />
+        <input type="text" value={todo.text} />
         <button aria-label="Save todo" class="save"></button>
     </form>
 
-    <form action="" method="">
+    <form action="/todos/{todo.uid}.json?_method=delete" method="post">
         <button aria-label="Delete todo" class="delete"></button>
     </form>
 </div>
