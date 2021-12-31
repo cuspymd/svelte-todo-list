@@ -11,12 +11,9 @@ export const api = (request: Request, todo?: Todo) => {
             status = 200;
             break;
         case "POST":
-            return {
-                status: 303,
-                headers: {
-                   location: "/"
-                }
-            }
+            todos.push(todo);
+            body = todo;
+            status = 201;
             break;
         case "DELETE":
             todos = todos.filter(todo => todo.uid !== request.params.uid);
@@ -24,6 +21,14 @@ export const api = (request: Request, todo?: Todo) => {
             break;
     }
 
+    if (request.method.toUpperCase() !== "GET") {
+        return {
+            status: 303,
+            headers: {
+                location: "/"
+            }
+        }
+    }
     return {
         status,
         body
