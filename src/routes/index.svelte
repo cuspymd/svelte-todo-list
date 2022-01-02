@@ -30,7 +30,7 @@
 
         form.reset();
     }
-    const processUpdatedTodoResult = async (res: Response, form: HTMLFormElement) => {
+    const processUpdatedTodoResult = async (res: Response) => {
         const updatedTodo = await res.json();
         todos = todos.map(t => {
             if (t.uid === updatedTodo.uid) return updatedTodo;
