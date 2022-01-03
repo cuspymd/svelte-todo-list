@@ -7,7 +7,7 @@ tasks:
       export HMR_HOST=`gp url 3000`
       npm run dev
     env: 
-      DATABASE_URL: mysql://gitpod@localhost/todos
+      DATABASE_URL: mysql://root@localhost/todos
 
 ports:
   - port: 3000
