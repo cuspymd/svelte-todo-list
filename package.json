@@ -10,7 +10,7 @@
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
     "vercel-build": "prisma migrate deploy && npm run build && cp prisma/schema.prisma .vercel_build_output/functions/node/render/ && cp node_modules/@prisma/engines/*query* .vercel_build_output/functions/node/render/",
-    "cloudflare-build": "prisma migrate deploy && npm run build"
+    "cloudflare-build": "prisma generate && prisma migrate deploy && npm run build"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "next",
