@@ -9,8 +9,10 @@ export const api = async (request: Request, data?: Record<string, unknown>) => {
 
     switch (request.method.toUpperCase()) {
         case "GET":
+            console.time("get");
             body = await prisma.todo.findMany();
             status = 200;
+            console.timeEnd("get");
             break;
         case "POST":
             body = await prisma.todo.create({
@@ -31,6 +33,7 @@ export const api = async (request: Request, data?: Record<string, unknown>) => {
             status = 200;
             break;
         case "PATCH":
+            console.time("patch");
             body = await prisma.todo.update({
                 where: {
                     uid: request.params.uid
@@ -41,6 +44,7 @@ export const api = async (request: Request, data?: Record<string, unknown>) => {
                 }
             })
             status = 200;
+            console.timeEnd("patch");
             break;
     }
 
