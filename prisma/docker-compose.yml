@@ -1,0 +1,9 @@
+version: '3.7'
+services:
+    postgres:
+        image: postgres:14
+        environment:
+          - POSTGRES_DB=todos
+          - POSTGRES_HOST_AUTH_METHOD=trust
+        ports:
+          - '6543:5432'
