@@ -20,18 +20,8 @@ export async function post({ body: { email, password } }) {
         password: await bcrypt.hash(password, saltRounds)
     });
 
-    const { id } = await createSession(email);
     return {
         status: 201,
-        Headers: {
-            'Set-Cookie': serialize('session_id', id, {
-                path: '/',
-                httpOnly: true,
-                sameSite: 'strict',
-                secure: process.env.NODE_ENV === 'production',
-                maxAge: 60 * 60 * 24 * 7 // one week
-            })
-        },
         body: {
             message: 'Sucessfully signed up'
         }

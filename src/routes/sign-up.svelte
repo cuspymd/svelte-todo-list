@@ -16,7 +16,7 @@
             error = (await response.json()).message;
             return;
         }
-        window.location = '/protected'
+        window.location = '/'
     }
 </script>
 

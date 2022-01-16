@@ -9,7 +9,7 @@ type Todo = {
 
 type User = {
     email: string;
-    password: string;
+    password?: string;
 }
 
 type Session = {
