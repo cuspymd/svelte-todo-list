@@ -3,7 +3,7 @@
   
     const navigation = [
       {
-        href: '/',
+        href: `${$session.user ? "/" : "/sign-in"}`,
         name: 'Home'
       },
       {

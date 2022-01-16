@@ -6,3 +6,13 @@ type Todo = {
     text: string;
     done: boolean;
 }
+
+type User = {
+    email: string;
+    password: string;
+}
+
+type Session = {
+    id: string;
+    email: string;
+}

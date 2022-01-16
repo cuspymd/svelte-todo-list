@@ -1,8 +1,8 @@
 import { removeSession } from "./_db";
 import { parse, serialize } from "cookie";
+import type { RequestHandler } from "@sveltejs/kit";
 
-/** @type {import('@sveltejs/kit').RequestHandler} */
-export async function get({ headers: { cookie } }) {
+export const get: RequestHandler = async ({ headers: { cookie } }) => {
     const cookies = parse(cookie || '');
 
     if (cookies.session_id) {
