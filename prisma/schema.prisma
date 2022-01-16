@@ -13,4 +13,19 @@ model Todo {
     created_at DateTime
     text String
     done Boolean
+    user User @relation(fields: [userEmail], references: [email])
+    userEmail String
+}
+
+model User {
+    email String @id
+    password String
+    session Session?
+    todos Todo[]
+}
+
+model Session {
+    id String @id
+    user User @relation(fields: [email], references: [email])
+    email String
 }
