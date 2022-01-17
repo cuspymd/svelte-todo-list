@@ -1,6 +1,6 @@
 import { createSession, getUserByEmail } from './_db';
 import { serialize } from 'cookie';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 export async function post({ body: { email, password } }) {
     const user = await getUserByEmail(email);
