@@ -15,7 +15,7 @@
   "devDependencies": {
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
-    "@types/bcrypt": "^5.0.0",
+    "@types/bcryptjs": "^2.4.2",
     "@types/cookie": "^0.4.1",
     "@types/uuid": "^8.3.4",
     "autoprefixer": "^10.4.2",
@@ -32,11 +32,8 @@
   "dependencies": {
     "@prisma/client": "^3.7.0",
     "@tailwindcss/forms": "^0.4.0",
-    "aws-sdk": "^2.1058.0",
-    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
     "cookie": "^0.4.1",
-    "mock-aws-s3": "^4.0.2",
-    "nock": "^13.2.2",
     "uuid": "^8.3.2"
   }
 }
