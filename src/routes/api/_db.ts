@@ -24,7 +24,15 @@ export function createSession(email: string): Promise<Session> {
         email
     };
 
-    return prisma.session.create({ data: session });
+    return prisma.session.upsert({
+        where: {
+            email
+        },
+        update: {
+            id: session.id
+        },
+        create: session
+    });
 }
 
 export function getSession(id: string): Promise<null | Session> {
