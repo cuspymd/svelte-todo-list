@@ -5,9 +5,11 @@ tasks:
       npm install
     command: |
       export HMR_HOST=`gp url 3000`
+      export OAUTH_REDIRECT_URI=`gp url 3000`"/api/auth-callback"
       npm run dev
     env: 
       DATABASE_URL: postgres://gitpod@localhost/todos
+      
 
 ports:
   - port: 3000

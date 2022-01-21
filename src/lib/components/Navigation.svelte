@@ -34,7 +34,11 @@
         <div class='flex items-center ml-10 space-x-4'>
           <div class="font-medium text-white">
             {#if $session.user }
-              {$session.user.email}
+              <a
+                href='/sync'
+              >
+                {$session.user.email}
+              </a> 
             {/if}
           </div>
           <div>

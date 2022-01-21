@@ -42,3 +42,7 @@ export function getSession(id: string): Promise<null | Session> {
 export function removeSession(id: string): Promise<Session> {
     return prisma.session.delete({ where: { id } });
 }
+
+export function getAuthCredential(email: string): Promise<null | AuthCredential> {
+    return prisma.authCredential.findUnique({ where: { email } });
+}

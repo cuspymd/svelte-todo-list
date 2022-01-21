@@ -9,10 +9,25 @@ type Todo = {
 
 type User = {
     email: string;
-    password?: string;
+    password: string;
 }
 
 type Session = {
     id: string;
     email: string;
+}
+
+type AuthClient = {
+    clientId: string;
+    clientSecret: string;
+    redirectURI: string;
+}
+
+type AuthCredential = {
+    email: string;
+    accessToken: string;
+    refreshToken: string;
+    scope: string;
+    tokenType: string;
+    expiryDate: number;
 }

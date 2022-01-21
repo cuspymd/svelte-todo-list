@@ -22,10 +22,21 @@ model User {
     password String
     session Session?
     todos Todo[]
+    authCredential AuthCredential?
 }
 
 model Session {
     id String @id
     user User @relation(fields: [email], references: [email])
     email String
+}
+
+model AuthCredential {
+    email String @id
+    accessToken String
+    refreshToken String
+    scope String
+    tokenType String
+    expiryDate Int
+    user User @relation(fields: [email], references: [email])
 }
