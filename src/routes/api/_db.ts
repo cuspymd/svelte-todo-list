@@ -46,3 +46,13 @@ export function removeSession(id: string): Promise<Session> {
 export function getAuthCredential(email: string): Promise<null | AuthCredential> {
     return prisma.authCredential.findUnique({ where: { email } });
 }
+
+export function setAuthCredential(email: string, authCredential: AuthCredential): Promise<AuthCredential> {
+    return prisma.authCredential.upsert({
+        where: {
+            email
+        },
+        update: authCredential,
+        create: authCredential
+    })
+}

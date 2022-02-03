@@ -10,11 +10,12 @@
         const response = await fetch('/api/sync', {
             method: 'POST'
         });
-        console.log("called");
         if (response.ok) {
             const url = (await response.json()).url;
-            console.log(url);
-            window.location.href = url;
+            return {
+                status: 302,
+                redirect: url
+            }
         }
         //window.location.href = '/'
     }
